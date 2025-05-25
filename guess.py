@@ -57,8 +57,8 @@ for guessTaken in range(0, chances):
 
 if guess == SECRET_NUMBER:
     if guessTaken == 0:
-        print(f'\nCongratulations! You guessed the secret number in {str(guessTaken + 1)} attempt.')
+        print(f'\nCongratulations! You guessed the secret number in {guessTaken + 1} attempt.')
     else:
-        print(f'\nCongratulations! You guessed the secret number in {str(guessTaken + 1)} attempts.')
+        print(f'\nCongratulations! You guessed the secret number in {guessTaken + 1} attempts.')
 else:
     print(f'\nYou lose! The secret number was {SECRET_NUMBER}.')
