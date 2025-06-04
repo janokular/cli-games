@@ -34,13 +34,25 @@ def print_board():
         print_border()
 
 
-def check_winner(player_name, player_symbol):
+def winning_condition(row, player_name, player_symbol):
     """Checks if the current player has won."""
     for row in BOARD:
         if row.count(player_symbol) == 3:
             print(f'\n{player_name} wins!')
             sys.exit()
-    # TODO Add checks for columns and diagonals for completeness
+
+def check_winner(player_name, player_symbol):
+    """"""
+    winning_condition(BOARD, player_name, player_symbol)
+    
+    vertical_rows = [[BOARD[0][0], BOARD[1][0], BOARD[2][0]],
+                     [BOARD[0][1], BOARD[1][1], BOARD[2][1]],
+                     [BOARD[0][2], BOARD[1][2], BOARD[2][2]]]
+    winning_condition(vertical_rows, player_name, player_symbol)
+    
+    diagonal_rows = [[BOARD[0][0], BOARD[1][1], BOARD[2][2]],
+                       [BOARD[0][2], BOARD[1][1], BOARD[2][0]]]
+    winning_condition(diagonal_rows, player_name, player_symbol)
 
 
 def make_move(player_name, player_symbol):
