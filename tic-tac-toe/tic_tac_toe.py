@@ -6,7 +6,7 @@ P1_NAME = 'P1'
 P1_SYMBOL = 'x'
 P2_NAME = 'P2'
 P2_SYMBOL = 'o'
-BOARD = [[' ', ' ', ' ',], [' ', ' ', ' ',], [' ', ' ', ' ',]]
+BOARD = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
 AVAILABLE_MOVES = ['11', '12', '13', '21', '22', '23', '31', '32', '33']
 
 def welcome():
@@ -34,15 +34,15 @@ def print_board():
         print_border()
 
 
-def winning_condition(row, player_name, player_symbol):
+def winning_condition(rows, player_name, player_symbol):
     """Checks if the current player has won."""
-    for row in BOARD:
+    for row in rows:
         if row.count(player_symbol) == 3:
             print(f'\n{player_name} wins!')
             sys.exit()
 
 def check_winner(player_name, player_symbol):
-    """"""
+    """Check if the player has won in any direction."""
     winning_condition(BOARD, player_name, player_symbol)
     
     vertical_rows = [[BOARD[0][0], BOARD[1][0], BOARD[2][0]],
